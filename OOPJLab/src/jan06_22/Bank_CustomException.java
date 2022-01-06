@@ -18,8 +18,32 @@ class Bank{
 		System.out.println("Account Balance       :  ");
 		acc_balance=sc.nextLong();
 	}
+	//Show Account
+	void ShowAccount()
+	{
+		System.out.println("Name of Account holder:  "+acc_holder);
+		System.out.println("Type of account       :  "+acc_type);
+		System.out.println("Account Number        :  "+acc_number);
+		System.out.println("Account Balance       :  "+acc_balance);
+	}
+	//Search Account 
+	private boolean SearchAcc(String acc_no)
+	{
+		if(acc_number.equals(acc_no))
+		{
+			return (true);
+		}
+		else
+			return (false);
+		
+	}
 	
-	
+	//To Deposit Funds
+	void Deposit()
+	{
+		int a_deposit;
+		System.out.println("Enter the amount to be deposited");
+	}
 	
 	
 	
@@ -33,6 +57,7 @@ public class Bank_CustomException {
 		Bank B=new Bank();
 		Scanner sc=new Scanner(System.in);
 		int choice;
+		boolean customer=false;
 		B.OpenAccount();
 		System.out.println("--UBS GLOBAL WEALTH MANAGEMENT--\n");
 		System.out.println("1.Display all account details");
@@ -49,6 +74,10 @@ public class Bank_CustomException {
 			case 1:
 			case 2:
 			case 3:
+			{
+				System.out.println("Enter Account Number to deposit funds: ");
+				
+			}
 			case 4:
 			case 5:
 			{
