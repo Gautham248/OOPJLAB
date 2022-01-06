@@ -2,7 +2,7 @@ package jan06_22;
 import java.util.*;
 import java.util.Arrays;
 
- class DepositException extends Exception {
+/* class DepositException extends Exception {
 	String message;
 	public DepositException(String msg)
 	{
@@ -24,9 +24,9 @@ class WithdrawException extends Exception{
 		{
 			return message;
 		}
-	}
+	}*/
 	
-
+// WithdrawException and DepositException are defined as its own file(class) in the same package
 
 class Bank{
 	private String acc_holder,acc_number,acc_type;
@@ -47,7 +47,7 @@ class Bank{
 	//Show Account
 	void ShowAccount()
 	{
-		System.out.print("Name of Account holder:  \n"+acc_holder);
+		System.out.println("Name of Account holder:  "+acc_holder);
 		System.out.println("Type of account       :  "+acc_type);
 		System.out.println("Account Number        :  "+acc_number);
 		System.out.println("Account Balance       :  "+acc_balance);
