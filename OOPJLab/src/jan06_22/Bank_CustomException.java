@@ -2,6 +2,32 @@ package jan06_22;
 import java.util.*;
 import java.util.Arrays;
 
+ class DepositException extends Exception {
+	String message;
+	public DepositException(String msg)
+	{
+		message=msg;
+	}
+	public String getMessage()
+	{
+		return message;
+	}
+}
+
+class WithdrawException extends Exception{
+		String message;
+		public WithdrawException(String msg)
+		{
+			message=msg;
+		}
+		public String getMessage()
+		{
+			return message;
+		}
+	}
+	
+
+
 class Bank{
 	private String acc_holder,acc_number,acc_type;
 	private long acc_balance;
@@ -21,13 +47,13 @@ class Bank{
 	//Show Account
 	void ShowAccount()
 	{
-		System.out.println("Name of Account holder:  "+acc_holder);
+		System.out.print("Name of Account holder:  \n"+acc_holder);
 		System.out.println("Type of account       :  "+acc_type);
 		System.out.println("Account Number        :  "+acc_number);
 		System.out.println("Account Balance       :  "+acc_balance);
 	}
 	//Search Account 
-	private boolean SearchAcc(String acc_no)
+	public boolean SearchAcc(String acc_no)
 	{
 		if(acc_number.equals(acc_no))
 		{
@@ -41,11 +67,52 @@ class Bank{
 	//To Deposit Funds
 	void Deposit()
 	{
-		int a_deposit;
-		System.out.println("Enter the amount to be deposited");
+		long a_deposit;
+		System.out.println("Enter the amount to be deposited :");
+		a_deposit=sc.nextLong();
+		
+		try {
+		if(a_deposit<=0)
+		{
+			throw new DepositException("Enter valid amount");
+		}
+		}
+		catch(DepositException e)
+		{
+			System.out.println(e.getMessage());
+		}
+		
+		acc_balance+=a_deposit;
+		System.out.println("Current balance: "+acc_balance);
 	}
 	
-	
+	//To Withdraw Funds
+	void Withdraw()
+	{
+		long a_withdraw;
+		System.out.println("Enter the amount to be withdrawn :");
+		a_withdraw=sc.nextLong();
+			try {
+				if(a_withdraw<=0)
+				{
+					throw new WithdrawException("Enter valid amount");
+				}
+			}
+				catch(WithdrawException e)
+				{
+				System.out.println(e.getMessage());
+				}
+			
+		if(a_withdraw>acc_balance)
+		{
+			System.out.println("Insufficient funds!!");
+		}
+		else
+		{
+		acc_balance-=a_withdraw;
+			System.out.println("Current balnce: "+acc_balance);
+		}
+	}
 	
 }
 
@@ -72,13 +139,54 @@ public class Bank_CustomException {
 			switch(choice)
 			{
 			case 1:
+			{
+				B.ShowAccount();
+				break;
+			}
 			case 2:
+			{
+				{
+				System.out.println("Enter Account Number: ");
+				String acc_no=sc.next();
+				if(B.SearchAcc(acc_no))
+				{
+					B.ShowAccount();
+				}
+				else
+				{
+					System.out.println("ACCOUNT NOT FOUND!!");
+				}
+				}
+				break;
+			}
 			case 3:
 			{
+				{
 				System.out.println("Enter Account Number to deposit funds: ");
-				
+				String acc_no=sc.next();
+				if(B.SearchAcc(acc_no))
+				{
+					B.Deposit();
+				}
+				else
+				{
+					System.out.println("ACCOUNT NOT FOUND!!");
+				}
+				}
+				break;
 			}
 			case 4:
+			{
+				{
+					System.out.println("Enter Account Number to withdraw funds: ");
+					String acc_no=sc.next();
+					if(B.SearchAcc(acc_no))
+					{
+						B.Withdraw();
+					}
+				}
+				break;
+			}
 			case 5:
 			{
 				System.out.println("--THANK YOU--");
