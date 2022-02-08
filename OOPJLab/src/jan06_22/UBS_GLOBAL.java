@@ -1,7 +1,7 @@
 package jan06_22;
 import java.util.*;
 
-class Bank{
+class BankManage{
 	private String acc_holder,acc_number,acc_type;
 	private long acc_balance;
 	int num_of_cust=0;
@@ -98,7 +98,7 @@ public class UBS_GLOBAL {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter maximum number of customers");
 		int mc=sc.nextInt();
-		Bank []b=new Bank[mc];
+		BankManage []b=new BankManage[mc];
 		int noc=0,choice;
 		System.out.println("--UBS GLOBAL WEALTH MANAGEMENT--\n");
 		System.out.println("1.Create new account");
@@ -112,7 +112,23 @@ public class UBS_GLOBAL {
 		{
 			System.out.println("Enter your choice: ");
 			choice=sc.nextInt();
-			
+			switch(choice)
+			{
+			case 1:
+			{
+				{
+					b[noc].OpenAccount();
+					noc++;
+				}
+				break;
+				
+			}
+			case 2:
+			{
+				
+			}
+			}
+				
 			
 		}while(choice!=6);
 	}

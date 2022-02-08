@@ -124,7 +124,7 @@ public class Bank_CustomException {
 		Bank B=new Bank();
 		Scanner sc=new Scanner(System.in);
 		int choice;
-		boolean customer=false;
+	
 		B.OpenAccount();
 		System.out.println("--UBS GLOBAL WEALTH MANAGEMENT--\n");
 		System.out.println("1.Display all account details");
