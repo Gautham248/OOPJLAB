@@ -2,8 +2,6 @@ package feb07_22;
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
-
-
 class GUICalculator extends JFrame implements ActionListener {
 	JButton b[]=new JButton[10];
 	JButton add,sub,div,mult,result,clear;
@@ -22,35 +20,28 @@ class GUICalculator extends JFrame implements ActionListener {
 	add=new JButton("+");
     p.add(add);
     add.addActionListener(this);
-
     sub=new JButton("-");
     p.add(sub);
     sub.addActionListener(this);
-
     mult=new JButton("*");
     p.add(mult);
     mult.addActionListener(this);
-
     div=new JButton("/");
     p.add(div);
     div.addActionListener(this);
-
     result=new JButton("=");
     p.add(result);
     result.addActionListener(this);
-
     clear=new JButton("C");
     p.add(clear);
     clear.addActionListener(this);
-	
 	res= new JTextField(10);
 	res.setSize(20,100);
 	add(p,BorderLayout.CENTER);
     add(res,BorderLayout.NORTH);
     setVisible(true);
     setSize(200,200);
-	}
-	 
+	} 
 	public void actionPerformed(ActionEvent e) {
 		JButton pb=(JButton)e.getSource();
 		if(pb==clear)
@@ -65,7 +56,6 @@ class GUICalculator extends JFrame implements ActionListener {
 	  		 eval();
 	  		 res.setText(""+r);
 			}
-	 
 			else
 			{
 	 		  boolean opf=false;
@@ -107,13 +97,9 @@ class GUICalculator extends JFrame implements ActionListener {
 	 	case '-':    r=n1-n2;   break;
 	 	case '*':    r=n1*n2; break;
 	 	case '/':    r=n1/n2; break;
-	 
 		}
 		return 0;
-
 	}
-	
-
 public static void main(String[] args) {
 	new GUICalculator();
 }
