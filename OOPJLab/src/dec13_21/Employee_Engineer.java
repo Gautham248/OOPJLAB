@@ -2,9 +2,7 @@ package dec13_21;
 import java.util.*;
 class employee{
 	double base,dal,hra;double sum;
-	//void employee(double a,double b,double c){
-		//base=a;dal=b;har=c;
-	//}
+	
 	void display() {
 		System.out.println("--EMPLOYEE CLASS--");
 	}
@@ -16,15 +14,15 @@ class employee{
 	
 }
 class engineer extends employee{
-	void disp() {
+	void display() {
+		super.display();super.calcSalary();
 		System.out.println("--ENGINEER CLASS--");
 	}
-	void esal() {
+	void calcSalary() {
+		this.display();
 	System.out.println("The Gross Salary of the engineer: "+sum*2);
 	}
 	}
-
-
 public class Employee_Engineer {
 
 	public static void main(String[] args) {
@@ -37,12 +35,7 @@ public class Employee_Engineer {
 		e.dal=sc.nextDouble();
 		System.out.println("Enter the HRA of the employee");
 		e.hra=sc.nextDouble();
-		e.display();
 		e.calcSalary();
-		e.disp();
-		e.esal();
 		
 	}
-	
-
 }

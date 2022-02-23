@@ -1,5 +1,5 @@
 package feb07_22;
-import java.awt.event.*;
+import java.awt.event.*; 
 import java.awt.*;
 import javax.swing.*;
 class GUICalculator extends JFrame implements ActionListener {
@@ -7,15 +7,16 @@ class GUICalculator extends JFrame implements ActionListener {
 	JButton add,sub,div,mult,result,clear;
 	int i,r,n1,n2; char op;
 	JTextField res;
+	JPanel p;
 	GUICalculator(){
 	JFrame f=new JFrame("CALCULATOR");
 	setLayout(new BorderLayout());
-	JPanel p=new JPanel();
+	 p=new JPanel();
 	p.setLayout(new GridLayout(4,4));
 	for(i=0;i<10;i++) {
 		b[i]=new JButton(i+"");
-		 p.add(b[i]);
-	     b[i].addActionListener(this);
+	    p.add(b[i]);
+        b[i].addActionListener(this);
 	}
 	add=new JButton("+");
     p.add(add);

@@ -1,21 +1,15 @@
 package nov29_21;
-
 import java.util.*;
-
 public class Matrix_Multiply {
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int m, n, p, q, sum = 0, c, d, k;
-		 
 	      Scanner in = new Scanner(System.in);
 	      System.out.println("Matrix Multiplication");
 	      System.out.println("Enter the number of rows and columns of first matrix");
 	      m = in.nextInt();
-	      n = in.nextInt();
-	 
-	      int first[][] = new int[m][n];
-	 
+	      n = in.nextInt();	 
+	      int first[][] = new int[m][n];	 
 	      System.out.println("Enter elements of first matrix");
 	 
 	      for (c = 0; c < m; c++)
